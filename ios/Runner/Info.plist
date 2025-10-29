@@ -34,6 +34,8 @@
 	<string>Hawn requires access to add new photos to your library, enabling you to save photos directly from the app.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Hawn needs access to photo library to share images in chat.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Hawn would like to track your activity across other companies' apps and websites to provide you with personalized content and improve your experience with AI companions.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
