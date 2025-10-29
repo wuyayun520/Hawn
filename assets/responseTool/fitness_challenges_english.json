@@ -1,0 +1,346 @@
+{
+  "fitness_challenges": [
+    {
+      "user_id": "fitness1",
+      "username": "FitSarah_M",
+      "display_name": "Sarah Martinez",
+      "profile_image": "assets/responseTool/fitness1/usericon.webp",
+      "background_image": "assets/responseTool/fitness1/userbg.webp",
+      "bio": "Fitness Enthusiast | 30-Day Challenge Expert | Sharing Healthy Lifestyle",
+      "location": "Los Angeles, CA",
+      "join_date": "2023-08-15",
+      "challenge_post": {
+        "post_id": "challenge_001",
+        "title": "30-Day Core Challenge - Day 15",
+        "description": "Halfway through my core training journey! 30 minutes of core exercises daily, from planks to crunches. I can feel my abdominal strength improving significantly. 15 more days to go, let's keep pushing! 💪",
+        "challenge_type": "30-Day Core Challenge",
+        "current_day": 15,
+        "total_days": 30,
+        "images": [
+          {
+            "image_path": "assets/responseTool/fitness1/fitness1.webp",
+            "description": "Pre-workout status record",
+            "timestamp": "2025-10-15T08:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/fitness1/fitness2.webp", 
+            "description": "Exercise demonstration during training",
+            "timestamp": "2025-10-15T08:30:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/fitness1/fitness3.webp",
+            "description": "Post-workout results showcase",
+            "timestamp": "2025-10-15T09:00:00Z"
+          }
+        ],
+        "workout_details": {
+          "duration_minutes": 30,
+          "exercises": [
+            "Plank 3 sets x 60 seconds",
+            "Crunches 3 sets x 20 reps",
+            "Russian Twists 3 sets x 30 reps",
+            "Mountain Climbers 3 sets x 30 seconds"
+          ],
+          "difficulty_level": "Intermediate",
+          "calories_burned": 180
+        },
+        "progress_metrics": {
+          "weight_kg": 58.5,
+          "body_fat_percentage": 18.2,
+          "waist_cm": 68,
+          "muscle_mass_kg": 22.1
+        },
+        "social_engagement": {
+          "likes": 234,
+          "comments": 45,
+          "shares": 12,
+          "followers": 1250
+        },
+        "created_at": "2025-10-15T08:00:00Z",
+        "updated_at": "2025-10-15T09:15:00Z"
+      }
+    },
+    {
+      "user_id": "fitness2",
+      "username": "IronMike_T",
+      "display_name": "Mike Thompson",
+      "profile_image": "assets/responseTool/fitness2/usericon.webp",
+      "background_image": "assets/responseTool/fitness2/userbg.webp",
+      "bio": "Strength Training Expert | Weightlifting Enthusiast | Helping Others Break Limits",
+      "location": "New York, NY",
+      "join_date": "2023-06-20",
+      "challenge_post": {
+        "post_id": "challenge_002",
+        "title": "Strength Training Challenge - Squat Breakthrough",
+        "description": "Finally broke my personal squat record today! Increased from 80kg to 95kg. I can feel a qualitative leap in my leg strength. Thanks to my coach's guidance and my training partners' encouragement! 🏋️‍♂️",
+        "challenge_type": "Strength Building Challenge",
+        "current_day": 8,
+        "total_days": 21,
+        "images": [
+          {
+            "image_path": "assets/responseTool/fitness2/fitness1.webp",
+            "description": "Squat preparation phase",
+            "timestamp": "2025-10-16T19:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/fitness2/fitness2.webp",
+            "description": "Squat execution process",
+            "timestamp": "2025-10-16T19:05:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/fitness2/fitness3.webp",
+            "description": "Celebration after breaking record",
+            "timestamp": "2025-10-16T19:10:00Z"
+          }
+        ],
+        "workout_details": {
+          "duration_minutes": 45,
+          "exercises": [
+            "Squats 5 sets x 5 reps (95kg)",
+            "Deadlifts 4 sets x 5 reps (120kg)",
+            "Bench Press 4 sets x 8 reps (85kg)",
+            "Pull-ups 3 sets x 10 reps"
+          ],
+          "difficulty_level": "Advanced",
+          "calories_burned": 320
+        },
+        "progress_metrics": {
+          "weight_kg": 85.2,
+          "body_fat_percentage": 12.5,
+          "squat_max_kg": 95,
+          "deadlift_max_kg": 120,
+          "bench_press_max_kg": 85
+        },
+        "social_engagement": {
+          "likes": 456,
+          "comments": 78,
+          "shares": 23,
+          "followers": 2100
+        },
+        "created_at": "2025-10-16T19:00:00Z",
+        "updated_at": "2025-10-16T19:30:00Z"
+      }
+    },
+    {
+      "user_id": "fitness3",
+      "username": "YogaEmma_L",
+      "display_name": "Emma Liu",
+      "profile_image": "assets/responseTool/fitness3/usericon.webp",
+      "background_image": "assets/responseTool/fitness3/userbg.webp",
+      "bio": "Yoga Instructor | Mind-Body Balance Advocate | Sharing Yoga Philosophy & Practice",
+      "location": "San Francisco, CA",
+      "join_date": "2023-09-10",
+      "challenge_post": {
+        "post_id": "challenge_003",
+        "title": "Yoga Flexibility Challenge - Handstand Progression",
+        "description": "After 3 weeks of practice, I can finally hold a stable handstand! From initial fear to current confidence, yoga has not only changed my body but also transformed my mindset. 🧘‍♀️",
+        "challenge_type": "Yoga Flexibility Challenge",
+        "current_day": 21,
+        "total_days": 30,
+        "images": [
+          {
+            "image_path": "assets/responseTool/fitness3/fitness1.webp",
+            "description": "Handstand preparation pose",
+            "timestamp": "2025-10-17T07:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/fitness3/fitness2.webp",
+            "description": "Stable handstand position",
+            "timestamp": "2025-10-17T07:15:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/fitness3/fitness3.webp",
+            "description": "Relaxation pose after handstand",
+            "timestamp": "2025-10-17T07:30:00Z"
+          }
+        ],
+        "workout_details": {
+          "duration_minutes": 60,
+          "exercises": [
+            "Downward Dog 5 minutes",
+            "Handstand Practice 10 minutes",
+            "Warrior Pose Series 15 minutes",
+            "Meditation & Relaxation 10 minutes"
+          ],
+          "difficulty_level": "Intermediate",
+          "calories_burned": 150
+        },
+        "progress_metrics": {
+          "weight_kg": 55.8,
+          "body_fat_percentage": 16.8,
+          "flexibility_score": 8.5,
+          "balance_time_seconds": 45
+        },
+        "social_engagement": {
+          "likes": 189,
+          "comments": 34,
+          "shares": 8,
+          "followers": 890
+        },
+        "created_at": "2025-10-17T07:00:00Z",
+        "updated_at": "2025-10-17T07:45:00Z"
+      }
+    },
+    {
+      "user_id": "fitness4",
+      "username": "CardioKing_J",
+      "display_name": "James Rodriguez",
+      "profile_image": "assets/responseTool/fitness4/usericon.webp",
+      "background_image": "assets/responseTool/fitness4/userbg.webp",
+      "bio": "Running Enthusiast | Marathon Runner | Sharing Running Tips & Insights",
+      "location": "Miami, FL",
+      "join_date": "2023-07-05",
+      "challenge_post": {
+        "post_id": "challenge_004",
+        "title": "Cardio Endurance Challenge - 5K Breakthrough",
+        "description": "Completed a 5K run in the park today in 22 minutes! That's 1 minute 30 seconds faster than last week. I can feel my cardiovascular function improving significantly. Running has helped me find inner peace. 🏃‍♂️",
+        "challenge_type": "Cardio Endurance Challenge",
+        "current_day": 12,
+        "total_days": 21,
+        "images": [
+          {
+            "image_path": "assets/responseTool/fitness4/fitness1.webp",
+            "description": "Pre-run warm-up preparation",
+            "timestamp": "2025-10-18T06:30:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/fitness4/fitness2.webp",
+            "description": "Running form during workout",
+            "timestamp": "2025-10-18T06:45:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/fitness4/fitness3.webp",
+            "description": "Post-run stretching",
+            "timestamp": "2025-10-18T07:00:00Z"
+          }
+        ],
+        "workout_details": {
+          "duration_minutes": 35,
+          "exercises": [
+            "5K Run 22 minutes",
+            "Dynamic Stretching 8 minutes",
+            "Core Training 5 minutes"
+          ],
+          "difficulty_level": "Intermediate",
+          "calories_burned": 280
+        },
+        "progress_metrics": {
+          "weight_kg": 72.3,
+          "body_fat_percentage": 14.2,
+          "running_pace_min_per_km": 4.4,
+          "max_heart_rate": 175,
+          "resting_heart_rate": 58
+        },
+        "social_engagement": {
+          "likes": 167,
+          "comments": 28,
+          "shares": 15,
+          "followers": 750
+        },
+        "created_at": "2025-10-18T06:30:00Z",
+        "updated_at": "2025-10-18T07:15:00Z"
+      }
+    },
+    {
+      "user_id": "fitness5",
+      "username": "CrossFitQueen_A",
+      "display_name": "Anna Chen",
+      "profile_image": "assets/responseTool/fitness5/usericon.webp",
+      "background_image": "assets/responseTool/fitness5/userbg.webp",
+      "bio": "CrossFit Coach | Functional Training Expert | Pushing Limits, Exceeding Expectations",
+      "location": "Austin, TX",
+      "join_date": "2023-05-12",
+      "challenge_post": {
+        "post_id": "challenge_005",
+        "title": "CrossFit Comprehensive Challenge - WOD Complete",
+        "description": "Today's WOD (Workout of the Day) was incredibly challenging! 20-minute AMRAP including burpees, kettlebell swings, and pull-ups. Although exhausting, the sense of achievement after completion is indescribable! 🔥",
+        "challenge_type": "CrossFit Comprehensive Challenge",
+        "current_day": 18,
+        "total_days": 30,
+        "images": [
+          {
+            "image_path": "assets/responseTool/fitness5/fitness1.webp",
+            "description": "Pre-WOD preparation",
+            "timestamp": "2025-10-19T18:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/fitness5/fitness2.webp",
+            "description": "Burpee execution",
+            "timestamp": "2025-10-19T18:10:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/fitness5/fitness3.webp",
+            "description": "Post-WOD celebration",
+            "timestamp": "2025-10-19T18:25:00Z"
+          }
+        ],
+        "workout_details": {
+          "duration_minutes": 25,
+          "exercises": [
+            "20-minute AMRAP:",
+            "15 Burpees",
+            "20 Kettlebell Swings (16kg)",
+            "10 Pull-ups",
+            "Completed Rounds: 4"
+          ],
+          "difficulty_level": "Advanced",
+          "calories_burned": 380
+        },
+        "progress_metrics": {
+          "weight_kg": 62.1,
+          "body_fat_percentage": 15.5,
+          "wod_score": 4,
+          "muscle_endurance_score": 8.2
+        },
+        "social_engagement": {
+          "likes": 312,
+          "comments": 56,
+          "shares": 19,
+          "followers": 1450
+        },
+        "created_at": "2025-10-19T18:00:00Z",
+        "updated_at": "2025-10-19T18:30:00Z"
+      }
+    }
+  ],
+  "metadata": {
+    "total_users": 5,
+    "total_challenges": 5,
+    "challenge_types": [
+      "30-Day Core Challenge",
+      "Strength Building Challenge", 
+      "Yoga Flexibility Challenge",
+      "Cardio Endurance Challenge",
+      "CrossFit Comprehensive Challenge"
+    ],
+    "generated_at": "2025-10-28T10:00:00Z",
+    "version": "1.0",
+    "description": "Complete data for 5 fitness challenge users, each with detailed personal information, challenge posts, and multiple images",
+    "data_structure": {
+      "user_info": [
+        "user_id",
+        "username", 
+        "display_name",
+        "profile_image",
+        "background_image",
+        "bio",
+        "location",
+        "join_date"
+      ],
+      "challenge_post": [
+        "post_id",
+        "title",
+        "description", 
+        "challenge_type",
+        "current_day",
+        "total_days",
+        "images",
+        "workout_details",
+        "progress_metrics",
+        "social_engagement",
+        "created_at",
+        "updated_at"
+      ]
+    }
+  }
+}

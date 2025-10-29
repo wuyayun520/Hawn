@@ -1,0 +1,279 @@
+{
+  "food_challenges": [
+    {
+      "user_id": "food1",
+      "username": "ChefMaria_C",
+      "display_name": "Maria Chen",
+      "profile_image": "assets/responseTool/food1/usericon.webp",
+      "background_image": "assets/responseTool/food1/userbg.webp",
+      "bio": "Professional Chef | Culinary Artist | Sharing Healthy Recipes & Cooking Tips",
+      "location": "San Francisco, CA",
+      "join_date": "2023-09-15",
+      "challenge_post": {
+        "post_id": "food_challenge_001",
+        "title": "Healthy Meal Prep Challenge - Week 3",
+        "description": "Another successful week of meal prep! Created delicious and nutritious meals that are both satisfying and healthy. Love how organized and efficient this makes my week! 🥗✨",
+        "challenge_type": "Healthy Meal Prep Challenge",
+        "current_week": 3,
+        "total_weeks": 4,
+        "images": [
+          {
+            "image_path": "assets/responseTool/food1/food1.webp",
+            "description": "Meal prep containers ready for the week",
+            "timestamp": "2025-10-20T09:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/food1/food2.webp", 
+            "description": "Fresh ingredients preparation process",
+            "timestamp": "2025-10-20T09:30:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/food1/food3.webp",
+            "description": "Final plated healthy meals",
+            "timestamp": "2025-10-20T10:00:00Z"
+          }
+        ],
+        "recipe_details": {
+          "prep_time_minutes": 45,
+          "cook_time_minutes": 30,
+          "servings": 5,
+          "difficulty_level": "Intermediate",
+          "calories_per_serving": 420,
+          "main_ingredients": [
+            "Grilled Chicken Breast",
+            "Quinoa",
+            "Mixed Vegetables",
+            "Avocado",
+            "Greek Yogurt Dressing"
+          ]
+        },
+        "nutritional_info": {
+          "protein_g": 35,
+          "carbs_g": 28,
+          "fat_g": 18,
+          "fiber_g": 8,
+          "sugar_g": 6
+        },
+        "social_engagement": {
+          "likes": 342,
+          "comments": 67,
+          "shares": 23,
+          "followers": 1850
+        },
+        "created_at": "2025-10-20T09:00:00Z",
+        "updated_at": "2025-10-20T10:15:00Z"
+      }
+    },
+    {
+      "user_id": "food2",
+      "username": "BakingQueen_L",
+      "display_name": "Lisa Wang",
+      "profile_image": "assets/responseTool/food2/usericon.webp",
+      "background_image": "assets/responseTool/food2/userbg.webp",
+      "bio": "Pastry Chef | Baking Enthusiast | Creating Sweet Memories One Recipe at a Time",
+      "location": "New York, NY",
+      "join_date": "2023-07-22",
+      "challenge_post": {
+        "post_id": "food_challenge_002",
+        "title": "Artisan Bread Challenge - Sourdough Mastery",
+        "description": "Finally mastered the perfect sourdough bread! The crust is golden and crispy, the crumb is light and airy. This 48-hour fermentation process was worth every minute! 🍞🥖",
+        "challenge_type": "Artisan Bread Challenge",
+        "current_day": 12,
+        "total_days": 14,
+        "images": [
+          {
+            "image_path": "assets/responseTool/food2/food1.webp",
+            "description": "Freshly baked sourdough bread showcase",
+            "timestamp": "2025-10-21T14:00:00Z"
+          }
+        ],
+        "recipe_details": {
+          "prep_time_minutes": 20,
+          "fermentation_hours": 48,
+          "bake_time_minutes": 35,
+          "servings": 1,
+          "difficulty_level": "Advanced",
+          "calories_per_serving": 250,
+          "main_ingredients": [
+            "Sourdough Starter",
+            "Bread Flour",
+            "Sea Salt",
+            "Water"
+          ]
+        },
+        "nutritional_info": {
+          "protein_g": 8,
+          "carbs_g": 48,
+          "fat_g": 2,
+          "fiber_g": 3,
+          "sugar_g": 1
+        },
+        "social_engagement": {
+          "likes": 567,
+          "comments": 89,
+          "shares": 34,
+          "followers": 2400
+        },
+        "created_at": "2025-10-21T14:00:00Z",
+        "updated_at": "2025-10-21T14:45:00Z"
+      }
+    },
+    {
+      "user_id": "food3",
+      "username": "VeganChef_A",
+      "display_name": "Alex Rodriguez",
+      "profile_image": "assets/responseTool/food3/usericon.webp",
+      "background_image": "assets/responseTool/food3/userbg.webp",
+      "bio": "Plant-Based Chef | Vegan Lifestyle Advocate | Sustainable Cooking Expert",
+      "location": "Portland, OR",
+      "join_date": "2023-11-08",
+      "challenge_post": {
+        "post_id": "food_challenge_003",
+        "title": "Plant-Based Protein Challenge - Complete Nutrition",
+        "description": "Proving that plant-based meals can be incredibly satisfying and protein-rich! These colorful bowls pack 25g of protein per serving. Who says vegan food is boring? 🌱💪",
+        "challenge_type": "Plant-Based Protein Challenge",
+        "current_day": 8,
+        "total_days": 10,
+        "images": [
+          {
+            "image_path": "assets/responseTool/food3/food1.webp",
+            "description": "Colorful plant-based protein bowl",
+            "timestamp": "2025-10-22T12:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/food3/food2.webp",
+            "description": "Fresh ingredients and preparation",
+            "timestamp": "2025-10-22T12:15:00Z"
+          }
+        ],
+        "recipe_details": {
+          "prep_time_minutes": 25,
+          "cook_time_minutes": 20,
+          "servings": 2,
+          "difficulty_level": "Intermediate",
+          "calories_per_serving": 380,
+          "main_ingredients": [
+            "Chickpeas",
+            "Quinoa",
+            "Tofu",
+            "Mixed Greens",
+            "Tahini Dressing"
+          ]
+        },
+        "nutritional_info": {
+          "protein_g": 25,
+          "carbs_g": 35,
+          "fat_g": 15,
+          "fiber_g": 12,
+          "sugar_g": 8
+        },
+        "social_engagement": {
+          "likes": 298,
+          "comments": 45,
+          "shares": 18,
+          "followers": 1200
+        },
+        "created_at": "2025-10-22T12:00:00Z",
+        "updated_at": "2025-10-22T12:30:00Z"
+      }
+    },
+    {
+      "user_id": "food4",
+      "username": "FusionMaster_K",
+      "display_name": "Kevin Kim",
+      "profile_image": "assets/responseTool/food4/usericon.webp",
+      "background_image": "assets/responseTool/food4/userbg.webp",
+      "bio": "Fusion Cuisine Expert | International Flavors | Creative Cooking Innovator",
+      "location": "Los Angeles, CA",
+      "join_date": "2023-08-30",
+      "challenge_post": {
+        "post_id": "food_challenge_004",
+        "title": "Asian Fusion Challenge - Modern Ramen Bowl",
+        "description": "Created the ultimate fusion ramen bowl! Traditional Japanese techniques meet modern presentation. The broth is rich and complex, the toppings are perfectly balanced. This is comfort food elevated! 🍜✨",
+        "challenge_type": "Asian Fusion Challenge",
+        "current_day": 6,
+        "total_days": 7,
+        "images": [
+          {
+            "image_path": "assets/responseTool/food4/food1.webp",
+            "description": "Modern fusion ramen bowl presentation",
+            "timestamp": "2025-10-23T19:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/food4/food2.webp",
+            "description": "Broth preparation and ingredient assembly",
+            "timestamp": "2025-10-23T19:20:00Z"
+          }
+        ],
+        "recipe_details": {
+          "prep_time_minutes": 40,
+          "cook_time_minutes": 25,
+          "servings": 2,
+          "difficulty_level": "Advanced",
+          "calories_per_serving": 520,
+          "main_ingredients": [
+            "Fresh Ramen Noodles",
+            "Rich Tonkotsu Broth",
+            "Soft-Boiled Egg",
+            "Chashu Pork",
+            "Nori & Green Onions"
+          ]
+        },
+        "nutritional_info": {
+          "protein_g": 28,
+          "carbs_g": 45,
+          "fat_g": 22,
+          "fiber_g": 4,
+          "sugar_g": 3
+        },
+        "social_engagement": {
+          "likes": 423,
+          "comments": 72,
+          "shares": 28,
+          "followers": 1650
+        },
+        "created_at": "2025-10-23T19:00:00Z",
+        "updated_at": "2025-10-23T19:45:00Z"
+      }
+    }
+  ],
+  "metadata": {
+    "total_users": 4,
+    "total_challenges": 4,
+    "challenge_types": [
+      "Healthy Meal Prep Challenge",
+      "Artisan Bread Challenge", 
+      "Plant-Based Protein Challenge",
+      "Asian Fusion Challenge"
+    ],
+    "generated_at": "2025-10-28T10:00:00Z",
+    "version": "1.0",
+    "description": "Complete data for 4 food challenge users, each with detailed personal information, cooking challenges, and multiple food images",
+    "data_structure": {
+      "user_info": [
+        "user_id",
+        "username", 
+        "display_name",
+        "profile_image",
+        "background_image",
+        "bio",
+        "location",
+        "join_date"
+      ],
+      "challenge_post": [
+        "post_id",
+        "title",
+        "description", 
+        "challenge_type",
+        "current_day",
+        "total_days",
+        "images",
+        "recipe_details",
+        "nutritional_info",
+        "social_engagement",
+        "created_at",
+        "updated_at"
+      ]
+    }
+  }
+}

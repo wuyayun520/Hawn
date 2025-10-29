@@ -1,0 +1,76 @@
+{
+  "challenge_videos": [
+    {
+      "id": 1,
+      "title": "Extreme Cycling Challenge - Mountain Off-Road",
+      "view_count": 1250,
+      "like_count": 8500,
+      "challenge_type": "Cycling",
+      "video_url": "assets/paranoidCache/Cycling1.mp4",
+      "description": "Challenger completes extreme cycling challenge on rugged mountain terrain"
+    },
+    {
+      "id": 2,
+      "title": "Urban Cycling Challenge - Speed and Passion",
+      "view_count": 980,
+      "like_count": 7200,
+      "challenge_type": "Cycling",
+      "video_url": "assets/paranoidCache/Cycling2.mp4",
+      "description": "Showcasing cycling skills and speed on city streets"
+    },
+    {
+      "id": 3,
+      "title": "Cooking Challenge - Creative Cuisine",
+      "view_count": 1560,
+      "like_count": 12000,
+      "challenge_type": "Delicious",
+      "video_url": "assets/paranoidCache/Delicious1.mp4",
+      "description": "Challenger creates innovative culinary dishes"
+    },
+    {
+      "id": 4,
+      "title": "Food Challenge - Traditional Cuisine Recreation",
+      "view_count": 1340,
+      "like_count": 9800,
+      "challenge_type": "Delicious",
+      "video_url": "assets/paranoidCache/Delicious2.mp4",
+      "description": "Challenger recreates traditional food preparation techniques"
+    },
+    {
+      "id": 5,
+      "title": "Fitness Challenge - Strength Training",
+      "view_count": 1890,
+      "like_count": 15600,
+      "challenge_type": "Fitness",
+      "video_url": "assets/paranoidCache/Fitness1.mp4",
+      "description": "Challenger completes high-intensity strength training challenge"
+    },
+    {
+      "id": 6,
+      "title": "Fitness Challenge - Cardio Workout",
+      "view_count": 1670,
+      "like_count": 13200,
+      "challenge_type": "Fitness",
+      "video_url": "assets/paranoidCache/Fitness2.mp4",
+      "description": "Challenger completes cardio exercise challenge"
+    },
+    {
+      "id": 7,
+      "title": "Hairstyle Challenge - Creative Styling",
+      "view_count": 1120,
+      "like_count": 8900,
+      "challenge_type": "Hairstyle",
+      "video_url": "assets/paranoidCache/Hairstyle1.mp4",
+      "description": "Challenger demonstrates creative hairstyling techniques"
+    },
+    {
+      "id": 8,
+      "title": "Hairstyle Challenge - Classic Recreation",
+      "view_count": 980,
+      "like_count": 7600,
+      "challenge_type": "Hairstyle",
+      "video_url": "assets/paranoidCache/Hairstyle2.mp4",
+      "description": "Challenger recreates classic hairstyle designs"
+    }
+  ]
+}

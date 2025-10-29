@@ -1,0 +1,349 @@
+{
+  "hairstyle_challenges": [
+    {
+      "user_id": "hairstyle1",
+      "username": "StyleQueen_S",
+      "display_name": "Sophia Martinez",
+      "profile_image": "assets/responseTool/hairstyle1/usericon.webp",
+      "background_image": "assets/responseTool/hairstyle1/userbg.webp",
+      "bio": "Professional Hair Stylist | Trendsetter | Creating Beautiful Transformations",
+      "location": "Miami, FL",
+      "join_date": "2023-10-12",
+      "challenge_post": {
+        "post_id": "hairstyle_challenge_001",
+        "title": "Blonde Balayage Challenge - Perfect Blend",
+        "description": "Just completed this stunning blonde balayage transformation! The seamless blend from dark roots to light ends creates such a natural, sun-kissed look. My client is absolutely thrilled! 💇‍♀️✨",
+        "challenge_type": "Blonde Balayage Challenge",
+        "current_day": 1,
+        "total_days": 1,
+        "images": [
+          {
+            "image_path": "assets/responseTool/hairstyle1/hairstyle1.webp",
+            "description": "Before and after transformation showcase",
+            "timestamp": "2025-10-25T15:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/hairstyle1/hairstyle2.webp", 
+            "description": "Balayage technique demonstration",
+            "timestamp": "2025-10-25T15:30:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/hairstyle1/hairstyle3.webp",
+            "description": "Final styled look with perfect waves",
+            "timestamp": "2025-10-25T16:00:00Z"
+          }
+        ],
+        "styling_details": {
+          "service_type": "Balayage Highlighting",
+          "duration_hours": 3,
+          "difficulty_level": "Advanced",
+          "hair_length": "Long",
+          "hair_texture": "Fine to Medium",
+          "techniques_used": [
+            "Balayage Application",
+            "Color Blending",
+            "Toner Application",
+            "Blow-dry Styling"
+          ]
+        },
+        "product_info": {
+          "lightener": "Professional Lightener",
+          "toner": "Ash Blonde Toner",
+          "shampoo": "Purple Shampoo",
+          "conditioner": "Repair Treatment"
+        },
+        "social_engagement": {
+          "likes": 456,
+          "comments": 78,
+          "shares": 23,
+          "followers": 2100
+        },
+        "created_at": "2025-10-25T15:00:00Z",
+        "updated_at": "2025-10-25T16:15:00Z"
+      }
+    },
+    {
+      "user_id": "hairstyle2",
+      "username": "CurlyExpert_J",
+      "display_name": "Jessica Chen",
+      "profile_image": "assets/responseTool/hairstyle2/usericon.webp",
+      "background_image": "assets/responseTool/hairstyle2/userbg.webp",
+      "bio": "Curl Specialist | Natural Hair Advocate | Empowering Beautiful Curls",
+      "location": "Atlanta, GA",
+      "join_date": "2023-08-25",
+      "challenge_post": {
+        "post_id": "hairstyle_challenge_002",
+        "title": "Natural Curl Enhancement Challenge - Day 5",
+        "description": "Day 5 of our natural curl enhancement journey! The curl definition is getting better each day. Using the right products and techniques makes all the difference for natural hair care! 🌟💫",
+        "challenge_type": "Natural Curl Enhancement Challenge",
+        "current_day": 5,
+        "total_days": 7,
+        "images": [
+          {
+            "image_path": "assets/responseTool/hairstyle2/hairstyle1.webp",
+            "description": "Natural curl pattern showcase",
+            "timestamp": "2025-10-26T10:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/hairstyle2/hairstyle2.webp",
+            "description": "Curl care routine demonstration",
+            "timestamp": "2025-10-26T10:30:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/hairstyle2/hairstyle3.webp",
+            "description": "Styled curls with perfect definition",
+            "timestamp": "2025-10-26T11:00:00Z"
+          }
+        ],
+        "styling_details": {
+          "service_type": "Natural Curl Care",
+          "duration_hours": 2,
+          "difficulty_level": "Intermediate",
+          "hair_length": "Medium",
+          "hair_texture": "Curly",
+          "techniques_used": [
+            "Co-washing",
+            "Curl Definition",
+            "Moisturizing Treatment",
+            "Diffuser Styling"
+          ]
+        },
+        "product_info": {
+          "shampoo": "Sulfate-free Shampoo",
+          "conditioner": "Deep Moisturizing Conditioner",
+          "leave_in": "Curl Defining Cream",
+          "gel": "Light Hold Gel"
+        },
+        "social_engagement": {
+          "likes": 389,
+          "comments": 56,
+          "shares": 19,
+          "followers": 1750
+        },
+        "created_at": "2025-10-26T10:00:00Z",
+        "updated_at": "2025-10-26T11:15:00Z"
+      }
+    },
+    {
+      "user_id": "hairstyle3",
+      "username": "VintageVibes_M",
+      "display_name": "Maya Rodriguez",
+      "profile_image": "assets/responseTool/hairstyle3/usericon.webp",
+      "background_image": "assets/responseTool/hairstyle3/userbg.webp",
+      "bio": "Vintage Hair Specialist | Retro Styling Expert | Bringing Classic Beauty Back",
+      "location": "Los Angeles, CA",
+      "join_date": "2023-11-18",
+      "challenge_post": {
+        "post_id": "hairstyle_challenge_003",
+        "title": "Vintage Pin-Up Challenge - Classic Glamour",
+        "description": "Channeling old Hollywood glamour with this stunning vintage pin-up style! The victory rolls and soft waves create such an elegant, timeless look. Perfect for special occasions! 💄✨",
+        "challenge_type": "Vintage Pin-Up Challenge",
+        "current_day": 1,
+        "total_days": 1,
+        "images": [
+          {
+            "image_path": "assets/responseTool/hairstyle3/hairstyle1.webp",
+            "description": "Vintage pin-up style showcase",
+            "timestamp": "2025-10-27T14:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/hairstyle3/hairstyle2.webp",
+            "description": "Victory rolls technique demonstration",
+            "timestamp": "2025-10-27T14:30:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/hairstyle3/hairstyle3.webp",
+            "description": "Complete vintage glamour look",
+            "timestamp": "2025-10-27T15:00:00Z"
+          }
+        ],
+        "styling_details": {
+          "service_type": "Vintage Styling",
+          "duration_hours": 2.5,
+          "difficulty_level": "Advanced",
+          "hair_length": "Medium to Long",
+          "hair_texture": "Fine to Medium",
+          "techniques_used": [
+            "Victory Rolls",
+            "Pin Curls",
+            "Hot Roller Setting",
+            "Hair Spray Finishing"
+          ]
+        },
+        "product_info": {
+          "setting_lotion": "Vintage Setting Lotion",
+          "hair_spray": "Strong Hold Hair Spray",
+          "pomade": "Classic Pomade",
+          "bobby_pins": "Vintage Bobby Pins"
+        },
+        "social_engagement": {
+          "likes": 523,
+          "comments": 89,
+          "shares": 34,
+          "followers": 2400
+        },
+        "created_at": "2025-10-27T14:00:00Z",
+        "updated_at": "2025-10-27T15:15:00Z"
+      }
+    },
+    {
+      "user_id": "hairstyle4",
+      "username": "ModernCuts_A",
+      "display_name": "Alex Thompson",
+      "profile_image": "assets/responseTool/hairstyle4/usericon.webp",
+      "background_image": "assets/responseTool/hairstyle4/userbg.webp",
+      "bio": "Modern Hair Artist | Precision Cutter | Creating Contemporary Styles",
+      "location": "Seattle, WA",
+      "join_date": "2023-09-05",
+      "challenge_post": {
+        "post_id": "hairstyle_challenge_004",
+        "title": "Modern Bob Challenge - Sharp & Chic",
+        "description": "This sleek, modern bob is absolutely stunning! The sharp angles and clean lines create such a sophisticated, contemporary look. Perfect for the modern professional woman! ✂️💼",
+        "challenge_type": "Modern Bob Challenge",
+        "current_day": 1,
+        "total_days": 1,
+        "images": [
+          {
+            "image_path": "assets/responseTool/hairstyle4/hairstyle1.webp",
+            "description": "Modern bob cut showcase",
+            "timestamp": "2025-10-28T16:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/hairstyle4/hairstyle2.webp",
+            "description": "Precision cutting technique",
+            "timestamp": "2025-10-28T16:30:00Z"
+          }
+        ],
+        "styling_details": {
+          "service_type": "Precision Cut",
+          "duration_hours": 1.5,
+          "difficulty_level": "Advanced",
+          "hair_length": "Short",
+          "hair_texture": "Fine to Medium",
+          "techniques_used": [
+            "Precision Cutting",
+            "Texturizing",
+            "Blow-dry Styling",
+            "Flat Iron Finishing"
+          ]
+        },
+        "product_info": {
+          "shampoo": "Volumizing Shampoo",
+          "conditioner": "Lightweight Conditioner",
+          "heat_protectant": "Heat Protection Spray",
+          "finishing_spray": "Medium Hold Spray"
+        },
+        "social_engagement": {
+          "likes": 312,
+          "comments": 45,
+          "shares": 18,
+          "followers": 1350
+        },
+        "created_at": "2025-10-28T16:00:00Z",
+        "updated_at": "2025-10-28T16:45:00Z"
+      }
+    },
+    {
+      "user_id": "hairstyle5",
+      "username": "ColorMaster_K",
+      "display_name": "Kai Johnson",
+      "profile_image": "assets/responseTool/hairstyle5/usericon.webp",
+      "background_image": "assets/responseTool/hairstyle5/userbg.webp",
+      "bio": "Hair Color Specialist | Creative Colorist | Bold & Beautiful Transformations",
+      "location": "Austin, TX",
+      "join_date": "2023-12-03",
+      "challenge_post": {
+        "post_id": "hairstyle_challenge_005",
+        "title": "Rainbow Ombre Challenge - Vibrant Transformation",
+        "description": "This rainbow ombre transformation is absolutely incredible! The vibrant colors blend seamlessly from purple to pink to blue. Such a bold, artistic statement that's perfect for expressing personality! 🌈✨",
+        "challenge_type": "Rainbow Ombre Challenge",
+        "current_day": 1,
+        "total_days": 1,
+        "images": [
+          {
+            "image_path": "assets/responseTool/hairstyle5/hairstyle1.webp",
+            "description": "Rainbow ombre color showcase",
+            "timestamp": "2025-10-29T13:00:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/hairstyle5/hairstyle2.webp",
+            "description": "Color application process",
+            "timestamp": "2025-10-29T13:30:00Z"
+          },
+          {
+            "image_path": "assets/responseTool/hairstyle5/hairstyle3.webp",
+            "description": "Final styled rainbow look",
+            "timestamp": "2025-10-29T14:00:00Z"
+          }
+        ],
+        "styling_details": {
+          "service_type": "Creative Color",
+          "duration_hours": 4,
+          "difficulty_level": "Expert",
+          "hair_length": "Long",
+          "hair_texture": "Medium to Thick",
+          "techniques_used": [
+            "Ombre Application",
+            "Color Blending",
+            "Bleaching Process",
+            "Toner Application"
+          ]
+        },
+        "product_info": {
+          "lightener": "Professional Bleach",
+          "colors": "Vibrant Fashion Colors",
+          "toner": "Color Sealing Treatment",
+          "shampoo": "Color-Safe Shampoo"
+        },
+        "social_engagement": {
+          "likes": 678,
+          "comments": 112,
+          "shares": 45,
+          "followers": 2800
+        },
+        "created_at": "2025-10-29T13:00:00Z",
+        "updated_at": "2025-10-29T14:15:00Z"
+      }
+    }
+  ],
+  "metadata": {
+    "total_users": 5,
+    "total_challenges": 5,
+    "challenge_types": [
+      "Blonde Balayage Challenge",
+      "Natural Curl Enhancement Challenge", 
+      "Vintage Pin-Up Challenge",
+      "Modern Bob Challenge",
+      "Rainbow Ombre Challenge"
+    ],
+    "generated_at": "2025-10-28T10:00:00Z",
+    "version": "1.0",
+    "description": "Complete data for 5 hairstyle challenge users, each with detailed personal information, styling challenges, and multiple hair transformation images",
+    "data_structure": {
+      "user_info": [
+        "user_id",
+        "username", 
+        "display_name",
+        "profile_image",
+        "background_image",
+        "bio",
+        "location",
+        "join_date"
+      ],
+      "challenge_post": [
+        "post_id",
+        "title",
+        "description", 
+        "challenge_type",
+        "current_day",
+        "total_days",
+        "images",
+        "styling_details",
+        "product_info",
+        "social_engagement",
+        "created_at",
+        "updated_at"
+      ]
+    }
+  }
+}
