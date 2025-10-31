@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>appbarOutsideContext</key>
+	<string>memberAlongType</string>
+	<key>blocPatternDelay</key>
+	<string>activeStampOffset</string>
+	<key>channelContextScale</key>
+	<string>hierarchicalUsageSpacing</string>
+	<key>completerModeBrightness</key>
+	<string>hardSceneSkewy</string>
+	<key>permissiveAlignmentStatus</key>
+	<string>directStepScale</string>
+	<key>promiseParameterLocation</key>
+	<string>subsequentRoleSpacing</string>
+	<key>routerTaskVelocity</key>
+	<string>eagerCertificateSize</string>
+	<key>sceneLevelPressure</key>
+	<string>concurrentIndicatorEdge</string>
+	<key>transitionFlyweightFrequency</key>
+	<string>utilStrategyDelay</string>
+</dict>
+</plist>

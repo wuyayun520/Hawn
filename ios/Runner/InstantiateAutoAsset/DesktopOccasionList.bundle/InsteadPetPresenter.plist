@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>autoConfigurationOrientation</key>
+	<string>tickerCycleShade</string>
+	<key>chartAwayMode</key>
+	<string>disabledExceptionBottom</string>
+	<key>delegateOutsideBridge</key>
+	<string>semanticTransformerAlignment</string>
+	<key>mediaqueryKindSkewy</key>
+	<string>firstTabviewLeft</string>
+	<key>petAtFramework</key>
+	<string>topicFacadeDuration</string>
+	<key>projectOfProxy</key>
+	<string>skirtAgainstMethod</string>
+	<key>radiusFormPressure</key>
+	<string>discardedSwiftSkewy</string>
+	<key>tickerStageSkewx</key>
+	<string>toolParameterCount</string>
+	<key>transformerVariableTheme</key>
+	<string>aspectratioVisitorDepth</string>
+</dict>
+</plist>

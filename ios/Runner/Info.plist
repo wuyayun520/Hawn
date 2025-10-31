@@ -22,10 +22,35 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>hawn</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>hawn</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>weixin</string>
+		<string>lark</string>
+		<string>wxwork</string>
+		<string>dingtalk</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Hawn needs access to camera for video calls and taking photos for chat.</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -35,12 +60,13 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Hawn needs access to photo library to share images in chat.</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Hawn would like to track your activity across other companies' apps and websites to provide you with personalized content and improve your experience with AI companions.</string>
+	<string>Hawn would like to track your activity across other companies' apps and websites to provide you with personalized content.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
+		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -57,5 +83,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

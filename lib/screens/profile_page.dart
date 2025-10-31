@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../services/profile_service.dart';
 import 'about_page.dart';
 import 'privacy_policy_screen.dart';
 import 'terms_of_service_screen.dart';
 import 'message_list_screen.dart';
+import 'hawn_inapppurchases_screen.dart';
+import 'hawn_subscriptions_screen.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -38,6 +41,86 @@ class _ProfilePageState extends State<ProfilePage> {
     });
   }
 
+  // 检查VIP状态并处理头像选择
+  Future<void> _handleAvatarSelection() async {
+    // 检查VIP状态
+    final prefs = await SharedPreferences.getInstance();
+    final isVip = prefs.getBool('isVip') ?? false;
+    
+    if (isVip) {
+      // VIP用户，直接选择头像
+      _selectAvatar();
+    } else {
+      // 非VIP用户，显示订阅提示
+      final shouldSubscribe = await _showVipRequiredDialog();
+      if (shouldSubscribe == true) {
+        // 跳转到订阅页面
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SubscriptionsPage(),
+          ),
+        );
+      }
+    }
+  }
+
+  // 检查月订阅VIP状态并处理消息列表跳转
+  Future<void> _handleMessageListNavigation() async {
+    // 检查VIP状态和订阅类型
+    final prefs = await SharedPreferences.getInstance();
+    final isVip = prefs.getBool('isVip') ?? false;
+    final vipType = prefs.getString('vip_type') ?? '';
+    
+    if (isVip && vipType == 'monthly') {
+      // 月订阅VIP用户，直接跳转到消息列表
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MessageListScreen()),
+      );
+    } else {
+      // 非月订阅用户，显示订阅提示
+      final shouldSubscribe = await _showVipRequiredDialog();
+      if (shouldSubscribe == true) {
+        // 跳转到订阅页面
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SubscriptionsPage(),
+          ),
+        );
+      }
+    }
+  }
+
+  // 显示VIP要求对话框
+  Future<bool?> _showVipRequiredDialog() {
+    return showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Monthly VIP Required'),
+          content: const Text(
+            'You need monthly VIP subscription to access message list. Weekly subscription is not sufficient for this feature.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFAB47BC),
+              ),
+              child: const Text('Subscribe', style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +145,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 const SizedBox(height: 40),
                 // Profile Header
                 _buildProfileHeader(),
-                const SizedBox(height: 40),
+                const SizedBox(height: 30),
+                // Asset Cards (Wallet & VIP)
+                _buildAssetCards(),
+                const SizedBox(height: 30),
                 // Menu Items
                 _buildMenuItems(),
                 const SizedBox(height: 40), // 底部间距
@@ -79,7 +165,7 @@ class _ProfilePageState extends State<ProfilePage> {
       children: [
         // Profile Picture
         GestureDetector(
-          onTap: _selectAvatar,
+          onTap: _handleAvatarSelection,
           child: Container(
             width: 120,
             height: 120,
@@ -146,6 +232,89 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+  Widget _buildAssetCards() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: [
+          // Wallet Card
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const InAppPurchasesPage(),
+                  ),
+                );
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  'assets/hawn_user_wallet.webp',
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Center(
+                        child: Icon(
+                          Icons.account_balance_wallet,
+                          size: 40,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 16),
+          // VIP Card
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SubscriptionsPage(),
+                  ),
+                );
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  'assets/hawn_user_vip.webp',
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Center(
+                        child: Icon(
+                          Icons.workspace_premium,
+                          size: 40,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildMenuItems() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -167,12 +336,7 @@ class _ProfilePageState extends State<ProfilePage> {
             icon: Icons.message_outlined,
             iconColor: const Color(0xFFE91E63),
             title: 'Message',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const MessageListScreen()),
-              );
-            },
+            onTap: _handleMessageListNavigation,
           ),
           const SizedBox(height: 16),
           _buildMenuItem(

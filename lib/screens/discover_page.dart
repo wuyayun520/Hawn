@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/challenge_user_model.dart';
 import '../services/challenge_data_service.dart';
 import '../services/like_service.dart';
 import 'user_detail_screen.dart';
+import 'hawn_inapppurchases_screen.dart';
 
 class DiscoverPage extends StatefulWidget {
   const DiscoverPage({super.key});
@@ -18,6 +20,9 @@ class _DiscoverPageState extends State<DiscoverPage> {
   List<ChallengeUser> _groupMembers = []; // 存储群组成员
   bool _isLoading = false;
   Map<String, bool> _likeStatus = {}; // 存储每个用户的点赞状态
+  Map<String, bool> _unlockedUsers = {}; // 存储已解锁的用户
+  int _goldCoins = 0; // 当前金币余额
+  static const int UNLOCK_COST = 88; // 解锁用户所需金币
 
   final List<String> _typeNormalImages = [
     'assets/type/hawn_home_type1_nor.webp',
@@ -34,7 +39,49 @@ class _DiscoverPageState extends State<DiscoverPage> {
   @override
   void initState() {
     super.initState();
+    _loadGoldCoins();
+    _loadUnlockedUsers();
     _loadUsersForType(0);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // 每次页面重新显示时刷新金币数据
+    _loadGoldCoins();
+  }
+
+  Future<void> _loadGoldCoins() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _goldCoins = prefs.getInt('petCoins') ?? 0;
+    });
+  }
+
+  Future<void> _loadUnlockedUsers() async {
+    final prefs = await SharedPreferences.getInstance();
+    final unlockedUsersJson = prefs.getString('unlocked_users') ?? '{}';
+    // 这里简化处理，实际项目中可能需要更复杂的JSON解析
+    setState(() {
+      _unlockedUsers = Map<String, bool>.from(
+        unlockedUsersJson.split(',').fold<Map<String, bool>>(
+          {},
+          (map, userId) {
+            if (userId.isNotEmpty) {
+              map[userId] = true;
+            }
+            return map;
+          },
+        ),
+      );
+    });
+  }
+
+  Future<void> _saveUnlockedUser(String userId) async {
+    final prefs = await SharedPreferences.getInstance();
+    _unlockedUsers[userId] = true;
+    final unlockedUsersList = _unlockedUsers.keys.toList();
+    await prefs.setString('unlocked_users', unlockedUsersList.join(','));
   }
 
   Future<void> _loadUsersForType(int typeIndex) async {
@@ -93,6 +140,50 @@ class _DiscoverPageState extends State<DiscoverPage> {
     }
   }
 
+  // 检查用户解锁状态并跳转
+  Future<void> _navigateToUser(ChallengeUser user) async {
+    // 检查用户是否已解锁
+    if (_unlockedUsers[user.userId] == true) {
+      // 已解锁，直接跳转
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => UserDetailScreen(user: user),
+        ),
+      );
+    } else {
+      // 未解锁，检查金币是否足够
+      if (_goldCoins >= UNLOCK_COST) {
+        // 金币足够，显示确认对话框
+        final shouldUnlock = await _showUnlockConfirmationDialog(user);
+        if (shouldUnlock == true) {
+          // 用户确认解锁
+          await _unlockUser(user);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => UserDetailScreen(user: user),
+            ),
+          );
+        }
+          } else {
+            // 金币不足，提示充值
+            final shouldRecharge = await _showInsufficientCoinsDialog();
+            if (shouldRecharge == true) {
+              // 跳转到充值页面，等待返回后刷新金币数据
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const InAppPurchasesPage(),
+                ),
+              );
+              // 从充值页面返回后，重新加载金币数据
+              await _loadGoldCoins();
+            }
+          }
+    }
+  }
+
   // 随机选择用户并跳转到详情页面
   Future<void> _navigateToRandomUser() async {
     try {
@@ -108,17 +199,122 @@ class _DiscoverPageState extends State<DiscoverPage> {
         final randomIndex = DateTime.now().millisecondsSinceEpoch % allUsers.length;
         final selectedUser = allUsers[randomIndex];
         
-        // 跳转到用户详情页面
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => UserDetailScreen(user: selectedUser),
-          ),
-        );
+        // 使用统一的用户跳转逻辑
+        await _navigateToUser(selectedUser);
       }
     } catch (e) {
       print('Error navigating to random user: $e');
     }
+  }
+
+  // 解锁用户
+  Future<void> _unlockUser(ChallengeUser user) async {
+    final prefs = await SharedPreferences.getInstance();
+    
+    // 扣除金币
+    final newGoldCoins = _goldCoins - UNLOCK_COST;
+    await prefs.setInt('petCoins', newGoldCoins);
+    
+    // 保存解锁状态
+    await _saveUnlockedUser(user.userId);
+    
+    // 更新本地状态
+    setState(() {
+      _goldCoins = newGoldCoins;
+      _unlockedUsers[user.userId] = true;
+    });
+  }
+
+  // 显示解锁确认对话框
+  Future<bool?> _showUnlockConfirmationDialog(ChallengeUser user) {
+    return showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Unlock User'),
+          content: Text(
+            'Unlock ${user.displayName} for $UNLOCK_COST gold coins?',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFAB47BC),
+              ),
+              child: const Text('Unlock', style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // 显示金币不足对话框
+  Future<bool?> _showInsufficientCoinsDialog() {
+    return showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Insufficient Coins'),
+          content: Text(
+            'You need $UNLOCK_COST gold coins to unlock this user. You currently have $_goldCoins coins.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFAB47BC),
+              ),
+              child: const Text('Recharge', style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // 构建群组成员头像（带锁状态）
+  Widget _buildGroupMemberAvatar(ChallengeUser user, int index) {
+    final isUnlocked = _unlockedUsers[user.userId] == true;
+    
+    return GestureDetector(
+      onTap: () => _navigateToUser(user),
+      child: Stack(
+        children: [
+          CircleAvatar(
+            radius: 16,
+            backgroundImage: AssetImage(user.profileImage),
+          ),
+          // 如果用户未解锁，显示锁图标
+          if (!isUnlocked)
+            Positioned(
+              right: 0,
+              bottom: 0,
+              child: Container(
+                width: 12,
+                height: 12,
+                decoration: const BoxDecoration(
+                  color: Color(0xFFAB47BC),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.lock,
+                  size: 8,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
   }
 
   // 切换点赞状态
@@ -176,9 +372,31 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: GestureDetector(
                           onTap: _navigateToRandomUser,
-                          child: Image.asset(
-                            'assets/hawn_home_card_one.webp',
-                            fit: BoxFit.contain,
+                          child: Stack(
+                            children: [
+                              Image.asset(
+                                'assets/hawn_home_card_one.webp',
+                                fit: BoxFit.contain,
+                              ),
+                              // 随机用户卡片总是显示锁（因为不知道具体用户）
+                              Positioned(
+                                top: 8,
+                                right: 8,
+                                child: Container(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xFFAB47BC),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: const Icon(
+                                    Icons.lock,
+                                    size: 12,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -188,9 +406,31 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: GestureDetector(
                           onTap: _navigateToRandomUser,
-                          child: Image.asset(
-                            'assets/hawn_home_card_two.webp',
-                            fit: BoxFit.contain,
+                          child: Stack(
+                            children: [
+                              Image.asset(
+                                'assets/hawn_home_card_two.webp',
+                                fit: BoxFit.contain,
+                              ),
+                              // 随机用户卡片总是显示锁（因为不知道具体用户）
+                              Positioned(
+                                top: 8,
+                                right: 8,
+                                child: Container(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xFFAB47BC),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: const Icon(
+                                    Icons.lock,
+                                    size: 12,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -200,9 +440,31 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: GestureDetector(
                           onTap: _navigateToRandomUser,
-                          child: Image.asset(
-                            'assets/hawn_home_card_three.webp',
-                            fit: BoxFit.contain,
+                          child: Stack(
+                            children: [
+                              Image.asset(
+                                'assets/hawn_home_card_three.webp',
+                                fit: BoxFit.contain,
+                              ),
+                              // 随机用户卡片总是显示锁（因为不知道具体用户）
+                              Positioned(
+                                top: 8,
+                                right: 8,
+                                child: Container(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xFFAB47BC),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: const Icon(
+                                    Icons.lock,
+                                    size: 12,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -309,26 +571,75 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                     child: GestureDetector(
                                       onTap: () {
                                         if (_currentUsers.isNotEmpty) {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => UserDetailScreen(
-                                                user: _currentUsers[_currentUserIndex],
-                                              ),
-                                            ),
-                                          );
+                                          _navigateToUser(_currentUsers[_currentUserIndex]);
                                         }
                                       },
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(12),
-                                        child: Image.asset(
-                                          _currentUsers[_currentUserIndex].challengePost.images.isNotEmpty
-                                              ? _currentUsers[_currentUserIndex].challengePost.images.first.imagePath
-                                              : 'assets/responseTool/fitness1/fitness1.webp',
-                                          fit: BoxFit.cover,
-                                          width: double.infinity,
-                                          height: double.infinity,
-                                        ),
+                                      child: Stack(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius: BorderRadius.circular(12),
+                                            child: Image.asset(
+                                              _currentUsers[_currentUserIndex].challengePost.images.isNotEmpty
+                                                  ? _currentUsers[_currentUserIndex].challengePost.images.first.imagePath
+                                                  : 'assets/responseTool/fitness1/fitness1.webp',
+                                              fit: BoxFit.cover,
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                            ),
+                                          ),
+                                          // 锁覆盖层（如果用户未解锁）
+                                          if (_currentUsers.isNotEmpty && 
+                                              _unlockedUsers[_currentUsers[_currentUserIndex].userId] != true)
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Colors.black.withOpacity(0.6),
+                                                borderRadius: BorderRadius.circular(12),
+                                              ),
+                                              child: Center(
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  children: [
+                                                    Container(
+                                                      width: 60,
+                                                      height: 60,
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.white.withOpacity(0.9),
+                                                        shape: BoxShape.circle,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            color: Colors.black.withOpacity(0.3),
+                                                            blurRadius: 8,
+                                                            offset: const Offset(0, 2),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      child: const Icon(
+                                                        Icons.lock,
+                                                        size: 30,
+                                                        color: Color(0xFFAB47BC),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(height: 12),
+                                                    Container(
+                                                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                                      decoration: BoxDecoration(
+                                                        color: const Color(0xFFAB47BC),
+                                                        borderRadius: BorderRadius.circular(20),
+                                                      ),
+                                                      child: Text(
+                                                        'Unlock for $UNLOCK_COST coins',
+                                                        style: const TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 14,
+                                                          fontWeight: FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -343,31 +654,16 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                           children: [
                                             // 显示群组成员头像
                                             if (_groupMembers.isNotEmpty)
-                                              CircleAvatar(
-                                                radius: 16,
-                                                backgroundImage: AssetImage(
-                                                  _groupMembers[0].profileImage,
-                                                ),
-                                              ),
+                                              _buildGroupMemberAvatar(_groupMembers[0], 0),
                                             if (_groupMembers.length > 1)
                                               Positioned(
                                                 left: 20, // 增加间距从12到20
-                                                child: CircleAvatar(
-                                                  radius: 16,
-                                                  backgroundImage: AssetImage(
-                                                    _groupMembers[1].profileImage,
-                                                  ),
-                                                ),
+                                                child: _buildGroupMemberAvatar(_groupMembers[1], 1),
                                               ),
                                             if (_groupMembers.length > 2)
                                               Positioned(
                                                 left: 40, // 增加间距从24到40
-                                                child: CircleAvatar(
-                                                  radius: 16,
-                                                  backgroundImage: AssetImage(
-                                                    _groupMembers[2].profileImage,
-                                                  ),
-                                                ),
+                                                child: _buildGroupMemberAvatar(_groupMembers[2], 2),
                                               ),
                                           ],
                                         ),
@@ -455,14 +751,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                               GestureDetector(
                                                 onTap: () {
                                                   if (_currentUsers.isNotEmpty) {
-                                                    Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) => UserDetailScreen(
-                                                          user: _currentUsers[_currentUserIndex],
-                                                        ),
-                                                      ),
-                                                    );
+                                                    _navigateToUser(_currentUsers[_currentUserIndex]);
                                                   }
                                                 },
                                                 child: Container(

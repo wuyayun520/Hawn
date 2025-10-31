@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>criticalMemberFlags</key>
+	<string>primaryCertificateTheme</string>
+	<key>customizedPlaybackFlags</key>
+	<string>allocatorWithTier</string>
+	<key>observerSystemSpeed</key>
+	<string>secondAlertSpeed</string>
+	<key>sizeActionInterval</key>
+	<string>commandEnvironmentVelocity</string>
+	<key>swiftActionSaturation</key>
+	<string>completerThroughObserver</string>
+</dict>
+</plist>

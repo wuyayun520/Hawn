@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>actionValueTransparency</key>
+	<string>interactiveSpriteStatus</string>
+	<key>crucialNodeVelocity</key>
+	<string>checklistBridgeVelocity</string>
+	<key>histogramShapeDuration</key>
+	<string>singletonJobTag</string>
+	<key>mediumLocalizationStyle</key>
+	<string>unsortedLayerOrientation</string>
+	<key>sliderAroundTier</key>
+	<string>groupLayerVelocity</string>
+	<key>usecaseAroundParam</key>
+	<string>inkwellOutsidePrototype</string>
+</dict>
+</plist>

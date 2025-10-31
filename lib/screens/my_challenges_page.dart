@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/challenge_video_model.dart';
 import '../services/challenge_video_service.dart';
 import '../services/video_hide_service.dart';
 import 'video_player_screen.dart';
+import 'hawn_subscriptions_screen.dart';
 
 class MyChallengesPage extends StatefulWidget {
   const MyChallengesPage({super.key});
@@ -32,6 +34,68 @@ class _MyChallengesPageState extends State<MyChallengesPage> {
       _videos = filteredVideos;
       _isLoading = false;
     });
+  }
+
+  // 检查VIP状态并跳转
+  Future<void> _navigateToVideo(ChallengeVideo video) async {
+    // 检查VIP状态
+    final prefs = await SharedPreferences.getInstance();
+    final isVip = prefs.getBool('isVip') ?? false;
+    
+    if (isVip) {
+      // VIP用户，直接跳转到视频播放
+      final result = await Navigator.push<bool>(
+        context,
+        MaterialPageRoute(
+          builder: (context) => VideoPlayerScreen(video: video),
+        ),
+      );
+      
+      // 如果视频被隐藏，刷新列表
+      if (result == true) {
+        _loadVideos();
+      }
+    } else {
+      // 非VIP用户，显示订阅提示
+      final shouldSubscribe = await _showVipRequiredDialog();
+      if (shouldSubscribe == true) {
+        // 跳转到订阅页面
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SubscriptionsPage(),
+          ),
+        );
+      }
+    }
+  }
+
+  // 显示VIP要求对话框
+  Future<bool?> _showVipRequiredDialog() {
+    return showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('VIP Required'),
+          content: const Text(
+            'You need VIP access to watch challenge videos. Subscribe to unlock unlimited access to all content.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFAB47BC),
+              ),
+              child: const Text('Subscribe', style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -156,20 +220,7 @@ class _MyChallengesPageState extends State<MyChallengesPage> {
 
   Widget _buildVideoCard(ChallengeVideo video, int rank) {
     return GestureDetector(
-      onTap: () async {
-        // Navigate to full screen video player
-        final result = await Navigator.push<bool>(
-          context,
-          MaterialPageRoute(
-            builder: (context) => VideoPlayerScreen(video: video),
-          ),
-        );
-        
-        // If video was hidden, refresh the list
-        if (result == true) {
-          _loadVideos();
-        }
-      },
+      onTap: () => _navigateToVideo(video),
       child: Container(
         margin: const EdgeInsets.only(bottom: 16),
         decoration: BoxDecoration(

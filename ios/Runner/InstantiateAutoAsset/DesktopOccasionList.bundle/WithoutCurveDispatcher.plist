@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>containerVersusFunction</key>
+	<string>customizedTaskIndex</string>
+	<key>directTickerBehavior</key>
+	<string>blocPlatformBehavior</string>
+	<key>intensityByTier</key>
+	<string>containerFlyweightLeft</string>
+	<key>lastInkwellResponse</key>
+	<string>uniqueCustompaintTransparency</string>
+	<key>textAsMode</key>
+	<string>largeTaskLeft</string>
+	<key>tickerShapeSaturation</key>
+	<string>crucialReducerResponse</string>
+</dict>
+</plist>

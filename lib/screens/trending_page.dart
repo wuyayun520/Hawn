@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/trending_challenge_model.dart';
 import '../services/trending_challenge_service.dart';
 import '../services/trending_post_service.dart';
+import 'hawn_subscriptions_screen.dart';
 
 class TrendingPage extends StatefulWidget {
   const TrendingPage({super.key});
@@ -70,6 +72,58 @@ class _TrendingPageState extends State<TrendingPage> {
       });
       print('TrendingPage: State updated, isLoading = false');
     }
+  }
+
+  // 检查VIP状态并处理点赞
+  Future<void> _handleLike(String postId) async {
+    // 检查VIP状态
+    final prefs = await SharedPreferences.getInstance();
+    final isVip = prefs.getBool('isVip') ?? false;
+    
+    if (isVip) {
+      // VIP用户，直接点赞
+      _toggleLike(postId);
+    } else {
+      // 非VIP用户，显示订阅提示
+      final shouldSubscribe = await _showVipRequiredDialog();
+      if (shouldSubscribe == true) {
+        // 跳转到订阅页面
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SubscriptionsPage(),
+          ),
+        );
+      }
+    }
+  }
+
+  // 显示VIP要求对话框
+  Future<bool?> _showVipRequiredDialog() {
+    return showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('VIP Required'),
+          content: const Text(
+            'You need VIP access to like posts. Subscribe to unlock unlimited interactions with trending content.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFAB47BC),
+              ),
+              child: const Text('Subscribe', style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Future<void> _toggleLike(String postId) async {
@@ -426,7 +480,7 @@ class _TrendingPageState extends State<TrendingPage> {
               children: [
                 // Like button
                 GestureDetector(
-                  onTap: () => _toggleLike(challenge.challengePost.postId),
+                  onTap: () => _handleLike(challenge.challengePost.postId),
                   child: Row(
                     children: [
                       Icon(

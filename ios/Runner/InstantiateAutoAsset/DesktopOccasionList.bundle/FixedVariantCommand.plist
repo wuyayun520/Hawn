@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cacheMementoDuration</key>
+	<string>lossAroundInterpreter</string>
+	<key>enabledConfigurationCenter</key>
+	<string>errorVersusScope</string>
+	<key>mutableAllocatorSaturation</key>
+	<string>disparateOverlayState</string>
+	<key>normalGemMargin</key>
+	<string>playbackVisitorIndex</string>
+	<key>uniformReducerDensity</key>
+	<string>sineProxyRotation</string>
+</dict>
+</plist>

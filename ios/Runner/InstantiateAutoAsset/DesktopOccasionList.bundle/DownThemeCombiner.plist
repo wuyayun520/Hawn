@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>characterParameterVisibility</key>
+	<string>scrollAdapterBehavior</string>
+	<key>materialWithScope</key>
+	<string>frameByBridge</string>
+	<key>notificationInComposite</key>
+	<string>lazySubpixelVelocity</string>
+	<key>rowCommandFeedback</key>
+	<string>responsiveTaskVisibility</string>
+	<key>stateBesideLevel</key>
+	<string>resizablePositionedTension</string>
+	<key>subtleNotificationRight</key>
+	<string>priorBoxFeedback</string>
+</dict>
+</plist>
